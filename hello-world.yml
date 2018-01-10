@@ -1,0 +1,48 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: hello-world
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: hello-world
+          servicePort: 5555
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world
+  labels:
+    app: hello-world
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5555
+    targetPort: 5555
+    protocol: TCP
+    name: http
+  selector:
+    app: hello-world
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: hello-world
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-world
+        image: mrparkers/nodejs-hello-world:v1
+        ports:
+        - containerPort: 5555
