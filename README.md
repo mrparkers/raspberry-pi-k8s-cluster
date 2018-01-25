@@ -2,6 +2,8 @@
 
 Build your own Kubernetes cluster using a few Raspberry Pis.
 
+![](https://i.imgur.com/IUcj8CH.jpg)
+
 ## Shopping List
 
 | Name                           | Amazon Link                          |
