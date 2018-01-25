@@ -143,7 +143,7 @@ The output of running this command will contain some `kubeadm join` commands.  C
 
 Once that's done, install flannel by running the following on the master:
 
-```
+```bash
 curl -sSL https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
 ```
 
@@ -163,8 +163,8 @@ If you want to use `kubectl` to access your cluster from another machine, you'll
 be found at `/etc/kubernetes/admin.conf`. I went ahead and added the cluster, context, and user from the `admin.conf` file to my local `~/.kube/config` and renamed the context
 to `rpi`, so I can switch to this context by running:
 
-```
-kubectl config use-context api
+```bash
+kubectl config use-context rpi
 ```
 
 
@@ -177,13 +177,13 @@ is because there aren't a lot of great alternatives that support ARM.
 I created a simple hello world application that you can use to test our your cluster's functionality.  You can deploy it to your cluster using the included
 manifest file:
 
-```
+```bash
 kubectl apply -f hello-world.yml
 ```
 
 Once this is finished, you should be able to see this application by accessing it from a node in your cluster:
 
-```
+```bash
 HypriotOS/armv7: michael@rpi-master in ~
 $ kubectl get service
 NAME          TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
@@ -211,7 +211,7 @@ Unlike the behavior of a `NodePort`, I only want one of my nodes to expose servi
 a particular node as opposed to picking from the three that are available.  An easy way to do this is to add a label to the node you want to use and use `nodeSelector` to target
 the node with that label.
 
-```
+```bash
 kubectl label node rpi-node-1 ingress-controller=traefik
 ```
 
@@ -219,13 +219,13 @@ Finally, when I make my Traefik deployment, I want to set `hostNetwork` to `true
 
 You can deploy Traefik to your cluster using the included manifest file:
 
-```
+```bash
 kubectl apply -f traefik.yml
 ```
 
 Once this is finished, the Ingress resource created in `hello-world.yml` will be fulfilled by Traefik, which will redirect incoming traffic to the `hello-world` service on port 5555.
 
-```
+```bash
 $ curl rpi-node-1
 Hello World!
 ```
