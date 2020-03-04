@@ -8,7 +8,7 @@ Build your own Kubernetes cluster using a few Raspberry Pis.
 
 | Name                           | Amazon Link                          |
 |--------------------------------|--------------------------------------|
-| Raspberry Pi 3 Model B (x4)    | https://www.amazon.com/dp/B01CD5VC92 |
+| Raspberry Pi 3 Model B (x4)    | https://www.amazon.com/dp/B01LPLPBS8 |
 | Raspberry Pi Dog Bone Case     | https://www.amazon.com/dp/B00MYFAAPO |
 | SD Cards                       | https://www.amazon.com/dp/B013P27MDW |
 | Power Bank & Micro USB Cables  | https://www.amazon.com/dp/B00WI2DN4S |
