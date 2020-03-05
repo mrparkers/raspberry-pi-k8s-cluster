@@ -110,8 +110,8 @@ heavy@6.x.x:
     joi "13.x.x"
 
 hoek@5.x.x:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.2.tgz#d2f2c95d36fe7189cf8aa8c237abc1950eca1378"
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.4.tgz#0f7fa270a1cafeb364a4b2ddfaa33f864e4157da"
 
 iron@5.x.x:
   version "5.0.4"
